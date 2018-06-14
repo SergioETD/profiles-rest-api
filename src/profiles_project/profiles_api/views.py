@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from rest_framework import viewsets
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -44,7 +46,7 @@ class HelloApiView(APIView):
         """Handles updating an object"""
 
         return Response({'method': 'put'})
-        
+
 
     def patch(self, request, pk=None):
         """Patch request, only updates fields provided in the request"""
@@ -56,3 +58,16 @@ class HelloApiView(APIView):
         """Deletes an object"""
 
         return Response({'method':'delete'})
+
+
+class HelloViewSet(viewsets.ViewSet):
+    """Test API ViwSet"""
+    def list(elf, request):
+        """Return a hello message"""
+        a_viewset =[
+            'Users actions (list, create, retrieve, update, partial_update)',
+            'Automatically maps to URLs using Routers',
+            'Provides more functionality with less code'
+        ]
+
+        return Response({'message': 'Hello', 'a_viewset': a_viewset})
