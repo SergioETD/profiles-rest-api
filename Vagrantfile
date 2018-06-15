@@ -37,3 +37,7 @@ Vagrant.configure("2") do |config|
   SHELL
 
 end
+
+
+#Crea un servidor virtual usando virtual box, cuando se ejecuta por primera vez, se debe descargar la imagen
+#y esto puede tardar un poco. Una vez que termina, ya tenemos un sevidor arriba y ejecutandose
