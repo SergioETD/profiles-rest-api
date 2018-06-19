@@ -23,21 +23,21 @@ from . import permissions
 class HelloApiView(APIView):
     """Test API View"""
 
-    serializer_class = serializers.HelloSerializer
+    serializer_class = serializers.HelloSerializer #Llamada a la clase serializer HelloSerializer
 
     def get(self, request, format=None):
         """Returns a list of APIView features"""
         an_apiview = [
-            'Uses HTTP methods as function (get, pos, patch, put, delete)',
+            'Uses HTTP methods as function (get, post, patch, put, delete)',
             'It\'s similar to a traditional Django view',
             'Gives you the most control over your logic',
             'Is mapped manually to URLs'
         ]
 
-        return Response({'message:': 'Hello!', 'an_apiview': an_apiview})
+        return Response({'Header':'A header here 1!','message:': 'Hello!', 'an_apiview': an_apiview})
 
 
-    def post(self, request):
+    def post(self, request): #El objeto request contiene detalles (datos) que se mandan al API desde la vista
         """Create a hello message with our name"""
 
         serializer = serializers.HelloSerializer(data=request.data)
@@ -69,20 +69,18 @@ class HelloApiView(APIView):
         return Response({'method':'delete'})
 
 
+
 class HelloViewSet(viewsets.ViewSet):
     """Test API ViwSet"""
-
     serializer_class = serializers.HelloSerializer
-
-    def list(elf, request):
+    def list(self, request):
         """Return a hello message"""
         a_viewset =[
             'Users actions (list, create, retrieve, update, partial_update)',
             'Automatically maps to URLs using Routers',
             'Provides more functionality with less code'
         ]
-
-        return Response({'message': 'Hello', 'a_viewset': a_viewset})
+        return Response({'Header':'A header 2 :D!!','message': 'Hello', 'a_viewset': a_viewset})
 
     def create(self, request):
         """Create a new hello message"""

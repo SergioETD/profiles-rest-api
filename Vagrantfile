@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/xenial64"
 
+#Guest es el puerto del servidor vagrant para comuncarse con nosotros, yel host es el puerto de nuestro S.O.
   config.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 8080, host: 8080
 
   config.vm.provision "shell", inline: <<-SHELL

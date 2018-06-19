@@ -18,7 +18,7 @@ class UserProfileManager(BaseUserManager):
         user = self.model(email = email, name = name)
 
         user.set_password(password)
-        user.save(using=self._db)
+        user.save(using=self._db) #Significa que se va a usar la misma BD que se creó para guardar al objeto user
 
         return user #Retorna el objeto
 
@@ -46,13 +46,13 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     objects = UserProfileManager()
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'email' #El valor que se va a ocupar como usrname, con el cual se hara el log in
 
     """Required fields"""
 
     REQUIRED_FIELDS = ['name'] #Email ya es requerido en el field, por eso no se coloca aquí
 
-    def get_full_name():  # "def" define una función
+    def get_full_name(self):  # "def" define una función
         """Used to get a users full name"""
         return self.name
 

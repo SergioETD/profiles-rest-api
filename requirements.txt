@@ -2,3 +2,5 @@ Django==1.11
 djangorestframework==3.6.2
 pytz==2018.4
 uWSGI==2.0.15
+
+#Este archivo indica los framework y/o paquetes instalados por si se debe cambiar de maquina

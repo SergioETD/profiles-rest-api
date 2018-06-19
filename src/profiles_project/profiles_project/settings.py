@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+#Lista de las diferentes aplicacines instaladas en nuestro proyecto
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'profiles_api',
+    'rest_framework', #No viene por default, lo mandamos a llamar
+    'rest_framework.authtoken', #No viene por default
+    'profiles_api', #No viene por default, este es el NOMBRE DE NUESTRA APLICACION
 ]
 
 MIDDLEWARE = [
@@ -121,5 +122,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-AUTH_USER_MODEL = 'profiles_api.UserProfile' #Agregar esta entrada para indicar/asignar a django que debe usar este modelo
+#Agregar esta entrada para indicar/asignar a django que debe usar este modelo como autenticacion
+AUTH_USER_MODEL = 'profiles_api.UserProfile'
